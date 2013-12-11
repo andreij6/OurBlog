@@ -39,4 +39,11 @@ class BlogTest < ActiveSupport::TestCase
      assert !blog.errors[:tag_list].empty?
   end
   
+  test "the blog a description" do
+     blog = Blog.new
+     
+     assert !blog.save
+     assert !blog.errors[:description].empty?
+  end
+  
 end

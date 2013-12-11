@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+  
+  	<%= f.input :title %>
+  	<%= f.input :author %>
+  	<%= f.input :category%>
+  	<%= f.input :description %>
+  	<%= f.input :content %>
 	<%= f.input :tag_list, :label => "Tags (seperated by comas)"%>
   <div class="actions">
     <%= f.button :submit %>

@@ -1,25 +1,21 @@
-<div class="row">
+
 <h1>Learning Together</h1>
-<%= tag_cloud Blog.tag_counts, %w[s m l] do |tag, css_class| %>
-	<%= link_to tag.name, tag_path(tag.name), class: css_class %>
-<% end %>
+
 
 <% @blogs.each do |blog| %>
-<%= raw blog.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %>
- 
-    <%= link_to 'Show', blog %>
-    <%= link_to 'Edit', edit_blog_path(blog) %>
+<div class="large-6 columns">
+	<div class="panel">
+		<h5><%= link_to blog.title, blog %></h5>
+		<p><%= blog.content %></p>
+		<p><%= raw blog.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p>
+	</div>
+	<%= link_to 'Edit', edit_blog_path(blog) %>
     <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+    
+    
 <% end %>
 
-
-<br />
-    <div class="large-3 columns">
-      <div class="panel">
-        <h5>Latest Blog</h5>
-        <p>This is a three columns grid panel with an arbitrary height.</p>
-      </div>
-    </div>
     <div class="large-6 columns">
       <div class="panel">
         <h5>Featured</h5>
@@ -33,4 +29,4 @@
       </div>
     </div>
 <%= link_to 'New Blog', new_blog_path %>
-</div>
+
