@@ -1,4 +1,4 @@
-<%= simple_form_for(@blog) do |f| %>
+<%= form_for(@blog) do |f| %>
   <% if @blog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
@@ -11,12 +11,14 @@
     </div>
   <% end %>
   
-  	<%= f.input :title %>
-  	<%= f.input :author %>
-  	<%= f.input :category%>
-  	<%= f.input :description %>
-  	<%= f.input :content %>
-	<%= f.input :tag_list, :label => "Tags (seperated by comas)"%>
+  	<%= f.text_field :title, :placeholder => "Title" %>
+  	<%= f.text_field :author, :placeholder => "Author"  %>
+  	<%= tinymce :alternate %>
+  	<%= f.text_field :category, :placeholder => "Category"%>
+  	<%= f.text_area :description, :placeholder => "Short Description" %>
+  	
+  	<%= f.text_area :content, :id => " ", :class => "tinymce"%><br />
+	<%= f.text_field :tag_list, :label => "Tags (seperated by comas)"%>
   <div class="actions">
     <%= f.button :submit %>
   </div>

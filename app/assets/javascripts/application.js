@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require modernizr.custom
+//= require tinymce
 //= require_tree .
 
 

@@ -6,7 +6,7 @@
 <div class="large-6 columns">
 	<div class="panel">
 		<h5><%= link_to blog.title, blog %></h5>
-		<p><%= blog.content %></p>
+		<p><%= blog.description %></p>
 		<p><%= raw blog.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p>
 	</div>
 	<%= link_to 'Edit', edit_blog_path(blog) %>

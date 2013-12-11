@@ -16,3 +16,12 @@
  *= require_tree .
  */
 
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  z-index: -99999999;
+	
+  /* Preserve aspet ratio */
+  min-width: 100%;
+}

@@ -8,4 +8,5 @@ class Blog < ActiveRecord::Base
   validates :author, presence: true
   validates :tag_list, presence: true
   validates :description, presence: true
+  
 end
