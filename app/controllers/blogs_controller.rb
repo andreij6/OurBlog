@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
     if params[:tags]
       @blogs = Blog.tagged_with(params[:tag])
     else
-      @blogs = Blog.all
+      @blogs = Blog.order('created_at DESC').page(params[:page]).per_page(3)
     end
       
 
@@ -19,9 +19,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
-    @commentable = @blog
-    @comments = @commentable.comments
-    @comment = Comment.new
+    
 
     respond_to do |format|
       format.html # show.html.erb

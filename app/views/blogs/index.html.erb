@@ -1,15 +1,21 @@
 
 <h1>Learning Together</h1>
 
+<%= link_to 'New Blog', new_blog_path %>
 
+<hr />
+<%= will_paginate @blogs, :class => "pagination" %>
 <% @blogs.each do |blog| %>
+
 <div class="large-4 columns">
+	<%= link_to blog do %>
 	<div class="panel">
 		<%= image_tag blog.image %>
-		<h5 class="blog-image-title"><span><%= link_to blog.title, blog %></span></h5>
-		<p><%= blog.description %></p>
+		<h5 class="blog-image-title"><span><%= blog.title %><span class='spacer'></span><br/><small>:<%= blog.description %></small></span></h5>
+		
 		
 	</div>
+	<% end %>
 	<p><%= raw blog.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p>
 	<%= link_to 'Edit', edit_blog_path(blog) %>
     <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -18,17 +24,7 @@
     
 <% end %>
 
-    <div class="large-6 columns">
-      <div class="panel">
-        <h5>Featured</h5>
-        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
-      </div>
+    
     </div>
-    <div class="large-3  columns">
-      <div class="panel">
-        <h5>Panel Title</h5>
-        <p>This is a three columns grid panel with an arbitrary height.</p>
-      </div>
-    </div>
-<%= link_to 'New Blog', new_blog_path %>
+    <br />
 
