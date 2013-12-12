@@ -133,6 +133,12 @@
 		</div>
 		<div id="main">
 			<div class="row">
+				<% if current_user %>
+				  <h2>Welcome <%= current_user.name %>!</h2>
+				  <%= link_to "Sign Out", signout_path %>
+				<% else %>
+				  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+				<% end %>
 				<%= yield %>
 			</div>
 		</div>
