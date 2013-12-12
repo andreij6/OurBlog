@@ -46,4 +46,14 @@ class BlogTest < ActiveSupport::TestCase
      assert !blog.errors[:description].empty?
   end
   
+  test "a blog should have a unique title" do
+    blog = Blog.new
+    blog.title = blogs(:firstblog).title
+    
+    
+    assert !blog.save
+    puts blog.errors.inspect
+    assert !blog.errors[:title].empty?
+  end
+  
 end
