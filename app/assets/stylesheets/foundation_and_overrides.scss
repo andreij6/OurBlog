@@ -36,7 +36,7 @@
 
 // We use these to control various global styles
 // $body-bg: #000;
-// $body-font-color: #222;
+//$body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -619,7 +619,7 @@
 
 // We use these to set default inner padding and bottom margin
 // $panel-margin-bottom: rem-calc(20);
-// $panel-padding: rem-calc(20);
+ $panel-padding: 0;
 
 // We use these to set default font colors
 // $panel-font-color: #333;

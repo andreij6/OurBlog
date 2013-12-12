@@ -3,12 +3,14 @@
 
 
 <% @blogs.each do |blog| %>
-<div class="large-6 columns">
+<div class="large-4 columns">
 	<div class="panel">
-		<h5><%= link_to blog.title, blog %></h5>
+		<%= image_tag blog.image %>
+		<h5 class="blog-image-title"><span><%= link_to blog.title, blog %></span></h5>
 		<p><%= blog.description %></p>
-		<p><%= raw blog.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p>
+		
 	</div>
+	<p><%= raw blog.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p>
 	<%= link_to 'Edit', edit_blog_path(blog) %>
     <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
