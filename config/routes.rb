@@ -1,11 +1,16 @@
 Designer::Application.routes.draw do
-  resources :blogs
+
+  devise_for :users
+
+  resources :blogs do
+    resources :comments
+  end
   
   get 'tags/:tag', to: 'blogs#index', as: :tag
   
   root to: "blogs#index"
   
-  match "/auth/:provider/callback" => "sessions#create"
+  match "/auth/twitter/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
 
   # The priority is based upon order of creation:

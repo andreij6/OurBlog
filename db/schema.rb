@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212031823) do
+ActiveRecord::Schema.define(:version => 20131212182836) do
 
   create_table "blogs", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(:version => 20131212031823) do
 
   add_index "blogs", ["category"], :name => "index_blogs_on_category"
   add_index "blogs", ["created_at"], :name => "index_blogs_on_created_at"
+
+  create_table "comments", :force => true do |t|
+    t.text     "content"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
