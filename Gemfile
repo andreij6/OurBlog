@@ -11,6 +11,9 @@ gem 'acts-as-taggable-on'
 gem 'foundation-rails'
 gem 'tinymce-rails'
 gem 'omniauth-twitter'
+gem 'rmagick'
+gem 'carrierwave'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,7 +22,7 @@ group :assets do
   gem "sass_rails_patch", "~> 0.0.1"
   gem 'coffee-rails', '~> 3.2.1'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # See https://github.com/sstgephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'

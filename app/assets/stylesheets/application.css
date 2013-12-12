@@ -25,3 +25,9 @@
   /* Preserve aspet ratio */
   min-width: 100%;
 }
+
+.image img {
+	display: block;
+	position: relative;
+	left: 25%;
+}

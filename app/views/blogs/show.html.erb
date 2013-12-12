@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="large-12 columns">
-	
-		<%= @blog.content.html_safe %>
+		<div class="large-12 columns image">
+		<p class="large-12 columns"><%= @blog.content.html_safe %></p></div>
 	
 </div><br />
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
