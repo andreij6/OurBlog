@@ -132,18 +132,13 @@
 		</div>
 		<div id="main">
 			<div class="row">
-				<% if flash[:notice] %>
-					<div data-alert class="alert-box success radius">
-						<%= flash[:notice]%>
+				<% flash.each do |type, message| %>
+				<div data-alert class="alert-box <%= flash_class type %> radius">
+						<%= message %>
 						<a href="#" class="close">&times;</a>
 					</div>
-				<% end %>
-				<% if flash[:alert] %>
-					<div data-alert class="alert-box warning radius">
-						<%= flash[:alert]%>
-						<a href="#" class="close">&times;</a>
-					</div>
-				<% end %>
+				<% end%>
+				
 				<%= yield %>
 			</div>
 		</div>
