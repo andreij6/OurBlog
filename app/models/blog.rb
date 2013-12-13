@@ -7,7 +7,7 @@ class Blog < ActiveRecord::Base
   validates :title, presence: true,
                     uniqueness: true
   validates :author, presence: true
-  validates :tag_list, presence: true
+  #validates :tag_list, presence: true
   validates :description, presence: true
   
   mount_uploader :image, ImageUploader 

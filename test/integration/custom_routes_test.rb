@@ -1,4 +1,5 @@
 require 'test_helper'
+# rails g integration_test custom_routes
 # ruby -Itest test/integration/custom_routes_test.rb
 
 class CustomRoutesTest < ActionDispatch::IntegrationTest
