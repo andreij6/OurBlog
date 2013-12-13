@@ -13,7 +13,9 @@
  </div>
 
 
-<%= link_to 'New Blog', new_blog_path, :class => "button" %>
+<% if user_signed_in?%>
+	<%= link_to 'New Blog', new_blog_path, :class => "button" %>
+<% end %>
 <% unless params[:search]%>
 <% if @blogs.previous_page%>
 	<%= link_to "Previous", params.merge(:page => @blogs.previous_page) %>
@@ -32,13 +34,13 @@
 	<div class="panel">
 		<%= image_tag blog.image %>
 		<h5 class="blog-image-title"><span><%= blog.title %><span class='spacer'></span><br/><small>:<%= blog.description %></small></span></h5>
-		
-		
 	</div>
 	<% end %>
 	<p><%= blog.tag_list.map { |t| link_to t, tag_path(t)}.join(', ').html_safe %></p>
-	<%= link_to 'Edit', edit_blog_path(blog) %>
-    <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% if user_signed_in?%>
+		<%= link_to 'Edit', edit_blog_path(blog) %>
+	    <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
 </div>
    
     
@@ -47,4 +49,4 @@
     
     </div>
     <br />
-
+			   

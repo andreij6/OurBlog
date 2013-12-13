@@ -18,6 +18,14 @@ class BlogTest < ActiveSupport::TestCase
      assert !blog.errors[:content].empty?
   end
   
+  test "that the blog content is at least 2 letters long" do
+    blog = Blog.new
+    blog.content = "N"
+    
+    assert !blog.save
+    assert !blog.errors[:content].empty?
+  end
+  
   test "the blog has an author" do
      blog = Blog.new
      
@@ -30,13 +38,6 @@ class BlogTest < ActiveSupport::TestCase
      
      assert !blog.save
      assert !blog.errors[:category].empty?
-  end
-  
-  test "the blog one or more tags" do
-     blog = Blog.new
-     
-     assert !blog.save
-     assert !blog.errors[:tag_list].empty?
   end
   
   test "the blog a description" do
