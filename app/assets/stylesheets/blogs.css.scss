@@ -14,180 +14,19 @@
 
 $color: #445960;
 $to_grad_color: #2f3337;
-$home_color1: #0096d6;
-$home_color2: #008ac6;
-$service_color1:  #00b274;
-$service_color2: #00a46b;
-$reachus_color1:#d75ba2;
-$reachus_color2:#c75496;
-$clients_color1: #e9ac40;
-$clients_color2: #d89f3b;
+$home_color: #EDE9EC;
 
+html { height: 100%; }
 body {
-  background-color: $color;
+  background-color: $home_color;
   position: relative;
   z-index: 1;
+  height: 100%;
 }
-#main{
-    position:relative;
-    z-index:2;
-  
-    background-color: #fff;
 
-    padding: 120px 0 600px;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
-}
 img
 {
   position:absolute;
   left:50px;
 }
 
-footer {
-    height: 245px;
-    color:#ccc;
-    font-size:12px;
-
-    position:relative;
-    z-index:-2;
-
-    background-color:#31353a;
-    @include bg-image(top,$color, $to_grad_color);
-    
-    > ul{
-        width:960px;
-        position:fixed;
-        left:50%;
-        bottom:0;
-        margin-left:-480px;
-        padding-bottom: 60px;
-        z-index:-1;
-        > li{
-            width:25%;
-            float:left;
-        }
-        > li ul li{
-          margin-left:43px;
-          text-transform: uppercase;
-          font-weight:bold;
-          line-height:1.8;
-      }
-      > li ul li a{
-          text-decoration: none !important;
-          color:#7d8691 !important;
-          
-          &:hover{
-            color:#ddd !important;
-        }
-      }
-    }
-    
-    ul{
-      list-style: none;
-  }
-  a.logo{
-      color: #e4e4e4 !important;
-      text-decoration: none !important;
-      font-size: 14px;
-      font-weight: bold;
-      position: relative;
-      text-transform: uppercase;
-      margin-left: 16px;
-      display: inline-block;
-      margin-top: 7px;
-      
-      &:before{
-          content: '';
-          display: inline-block;
-          width: 48px;
-          height: 37px;
-          vertical-align: text-top;
-      }
-      
-      i{
-        font-style: normal;
-        position: absolute;
-        width: 60px;
-        display: block;
-        left: 48px;
-        top: 18px;
-        font-size: 12px;
-        color: #999;
-    }
-  }
-  p{
-      width: 90%;
-      margin-right: 10%;
-      padding: 9px 0;
-      line-height: 18px;
-      background-color: #058cc7;
-      font-weight: bold;
-      font-size: 14px;
-      color:#fff;
-      text-transform: uppercase;
-      text-shadow: 0 1px rgba(0,0,0,0.1);
-      box-shadow: 0 0 3px rgba(0,0,0,0.3);
-      margin-bottom: 20px;
-      opacity:0.9;
-      cursor:default;
-  
-      -webkit-transition: opacity 0.4s;
-      -moz-transition: opacity 0.4s;
-      transition: opacity 0.4s;
-      
-      &:before{
-        content: '';
-        display: inline-block;
-        
-        width: 16px;
-        height: 18px;
-        margin: 0 12px 0 15px;
-        vertical-align: text-bottom;
-      }
-    
-    &.home{
-        background-color: #0096d6;
-        @include bg-image(top,$home_color1, $home_color2);
-        
-        &:before{
-          background-position: 0 -110px;
-      }
-    }
-    &.services{
-        background-color: #00b274;
-        
-        @include bg-image(top,$service_color2, $service_color2);
-        
-        &:before{
-          background-position: 0 -129px;
-      }
-    }
-    
-    &.reachus{
-        background-color: #d75ba2;
-        
-        @include bg-image(top,$reachus_color1, $reachus_color2);
-        
-        &:before{
-          background-position: 0 -89px;
-      }
-    }
-    
-    &.clients{
-        background-color: #e9ac40;
-        
-        @include bg-image(top,$clients_color1, $clients_color2);
-        &:before{
-          background-position: 0 -69px;
-      }
-    }
-  }
-}
-
-footer > ul > li:hover p{
-    opacity:1;
-}
-
-.admin {
-  display: none;
-}

@@ -15,12 +15,13 @@ class BlogsController < ApplicationController
         @blogs  = Blog.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"])
         if @blogs.length == 0
           flash[:notice] = "Sorry we couldnt find what you were looking for"
-          @blogs = Blog.order('created_at DESC').page(params[:page]).per_page(3)
+          
+          @blogs = Blog.order('created_at DESC').page(params[:page]).per_page(4)
         end
     elsif params[:tag]
-      @blogs = Blog.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per_page(3)
+      @blogs = Blog.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per_page(4)
     else
-        @blogs = Blog.order('created_at DESC').page(params[:page]).per_page(3)
+        @blogs = Blog.order('created_at DESC').page(params[:page]).per_page(4)
     end
     
       

@@ -1,7 +1,4 @@
 
-<h1>Corner Label<small>the blog</small></h1>
-
-<div class="row collapse">
 	<%= form_tag root_path, :method => 'get' do%>
         <div class="small-10 columns">
           <%= text_field_tag :search, params[:search], :placeholder=>"Search" %>
@@ -10,33 +7,25 @@
           <%= submit_tag "Search", :class=>"button postfix", :name => nil%>
         </div>
          <% end %>
- </div>
 
 
-
-<% unless params[:search]%>
-<% if @blogs.previous_page%>
-	<%= link_to "Previous", params.merge(:page => @blogs.previous_page), :class=>"button" %>
-<% end %>
-<% if @blogs.next_page%>
-	<%= link_to "Next", params.merge(:page => @blogs.next_page), :class=>"button" %>
-<% end %>
-<% end %>
 <hr />
-<%# will_paginate @blogs, :class => "pagination" %><br />
+
 
 <% @blogs.each do |blog| %>
 
-<div class="large-4 columns">
+<div class="large-6 columns">
 	<%= link_to blog do %>
 	<div class="panel">
 		<% if blog.image %>
 			<%= image_tag blog.image %>
 		<% end %>
-		<h5 class="blog-image-title"><span><%= blog.title %><span class='spacer'></span><br/><small>:<%= blog.description %></small></span></h5>
+		<h5 class="blog-image-title"><span><%= blog.title %><span class='spacer'></span></h5>
+		
 	</div>
+	<p><%= blog.description %></p>
 	<% end %>
-	<p><%= blog.tag_list.map { |t| link_to t, tag_path(t)}.join(', ').html_safe %></p>
+	
 </div>
    
     
@@ -44,5 +33,16 @@
 
     
     </div>
+    <% unless params[:search]%>
+<% if @blogs.previous_page%>
+	<%= link_to "< Previous", params.merge(:page => @blogs.previous_page), :class=>"button" %>
+<% end %>
+<% if @blogs.next_page%>
+	<%= link_to "Next >", params.merge(:page => @blogs.next_page), :class=>"button" %>
+<% end %>
+<% end %>
     <br />
-			   
+    
+			 <% @blogs.each do |blog| %>
+			 
+			 <% end%>  

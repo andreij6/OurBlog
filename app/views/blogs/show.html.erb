@@ -4,9 +4,21 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 <div class="large-12 columns">
+	
 		<div class="large-12 columns image">
 			<h1><%= @blog.title %></h1>
-		<p class="large-12 columns"><%= @blog.content.html_safe %></p></div>
+		<p class="large-12 columns"><%= @blog.content.html_safe %></p>
+		</div>
+
+<% if @blog.tag_list %>
+	<div class="right">
+	<dl class="tabs" data-tab>
+	<% @blog.tag_list.map do |t| %>
+		<dd><%= link_to "_" + t, tag_path(t).html_safe %></dd>
+	<% end %>
+	</dl>
+	<% end %>
+	</div>
 </div><br />
  <div id="disqus_thread"></div>
     <script type="text/javascript">

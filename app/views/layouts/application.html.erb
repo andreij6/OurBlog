@@ -8,6 +8,31 @@
 </head>
 <body>
 	
+	<nav class="top-bar" data-topbar>
+	  <ul class="title-area">
+	    <li class="name">
+	      <h1><%= link_to 'Corner Label', root_path%></h1>
+	    </li>
+	    
+	    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	    
+	  </ul>
+	
+	 
+	</nav>
+	
+	<div class="row">
+    <div class="large-12 columns">
+      <div class="nav-bar right">
+       <ul class="button-group">
+         <li><%= link_to 'Home', root_path, :class => "button" %></li>
+         
+        </ul>
+      </div>
+      <h1>CornerLabel <small>The Blog.</small></h1>
+      <hr />
+    </div>
+  </div>
 		<div id="main">
 			<div class="row">
 				<% unless @page_caching%>
@@ -18,9 +43,19 @@
 						</div>
 					<% end%>
 				<% end %>
-				<%= yield %>
+				<div class="large-8 columns"><%= yield %></div>
 			</div>
 		</div>
+	<footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; CornerLabel  <%= Time.now.year%></p>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'cornerlabelcom'; // required: replace example with your forum shortname
