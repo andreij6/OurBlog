@@ -1,5 +1,5 @@
 
-<h1>Learning Together</h1>
+<h1>Corner Label<small>the blog</small></h1>
 
 <div class="row collapse">
 	<%= form_tag root_path, :method => 'get' do%>
@@ -13,15 +13,13 @@
  </div>
 
 
-<% if user_signed_in?%>
-	<%= link_to 'New Blog', new_blog_path, :class => "button" %>
-<% end %>
+
 <% unless params[:search]%>
 <% if @blogs.previous_page%>
-	<%= link_to "Previous", params.merge(:page => @blogs.previous_page) %>
+	<%= link_to "Previous", params.merge(:page => @blogs.previous_page), :class=>"button" %>
 <% end %>
 <% if @blogs.next_page%>
-	<%= link_to "Next", params.merge(:page => @blogs.next_page) %>
+	<%= link_to "Next", params.merge(:page => @blogs.next_page), :class=>"button" %>
 <% end %>
 <% end %>
 <hr />
@@ -32,15 +30,13 @@
 <div class="large-4 columns">
 	<%= link_to blog do %>
 	<div class="panel">
-		<%= image_tag blog.image %>
+		<% if blog.image %>
+			<%= image_tag blog.image %>
+		<% end %>
 		<h5 class="blog-image-title"><span><%= blog.title %><span class='spacer'></span><br/><small>:<%= blog.description %></small></span></h5>
 	</div>
 	<% end %>
 	<p><%= blog.tag_list.map { |t| link_to t, tag_path(t)}.join(', ').html_safe %></p>
-	<% if user_signed_in?%>
-		<%= link_to 'Edit', edit_blog_path(blog) %>
-	    <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-	<% end %>
 </div>
    
     

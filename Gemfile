@@ -4,13 +4,14 @@ gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+end
 gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'foundation-rails'
 gem 'tinymce-rails'
-
+gem 'rails_admin'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'will_paginate', '~> 3.0.5'
@@ -49,4 +50,9 @@ gem 'jquery-rails'
 
 gem 'httparty'
 
+
+group :production do
+  gem "thin"
+  gem "pg"
+end
 

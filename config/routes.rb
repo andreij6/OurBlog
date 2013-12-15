@@ -1,6 +1,9 @@
 Designer::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
+  get '/blogs/page/:page', to: 'blogs#index'
+  
   devise_for :users
 
   resources :blogs do

@@ -1,6 +1,12 @@
 class BlogsController < ApplicationController
-  
   before_filter :authenticate_user!, except: [:index, :show]
+  caches_page :index, :show
+  
+  before_filter(only: [:index, :show]) {@page_caching = true}
+  
+  cache_sweeper :blog_sweeper
+  
+  
   
   # GET /blogs
   # GET /blogs.json
@@ -73,9 +79,9 @@ class BlogsController < ApplicationController
   # PUT /blogs/1.json
   def update
     @blog = Blog.find(params[:id])
-
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
+        
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
         format.json { head :no_content }
       else

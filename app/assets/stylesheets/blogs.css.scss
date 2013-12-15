@@ -99,7 +99,6 @@ footer {
       &:before{
           content: '';
           display: inline-block;
-          background: url('../img/sprite.png') no-repeat -19px -70px;
           width: 48px;
           height: 37px;
           vertical-align: text-top;
@@ -139,7 +138,7 @@ footer {
       &:before{
         content: '';
         display: inline-block;
-        background: url('../img/sprite.png') no-repeat;
+        
         width: 16px;
         height: 18px;
         margin: 0 12px 0 15px;
@@ -189,10 +188,6 @@ footer > ul > li:hover p{
     opacity:1;
 }
 
-#tag_cloud {
-  width: 400px;
-  line-height: 1.6em;
-  .s { font-size: 0.8em; }
-  .m { font-size: 1.2em; }
-  .l { font-size: 1.8em; }
+.admin {
+  display: none;
 }

@@ -8,3 +8,4 @@ $(document).ready ->
 
   $("#cbp-hrmenu > ul > li").mouseleave ->
     $(this).removeClass "cbp-hropen"
+    
